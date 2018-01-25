@@ -2,19 +2,38 @@
 html
     head
         title= "Real time web chat"
-        link(rel='stylesheet', href="/main.css")
-        link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous')
-        script(src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous")  
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
         script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous")
-        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous") 
+        script(src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous")
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous")
+        link(rel='stylesheet', href="/main.css")
+        link(href="https:///fonts.googleapis.com/css?family=Creepster", rel="stylesheet")
         script(src='/chat.js')
         script(src='socket.io/socket.io.js')
+
     body
-        p="Welcome to my Chat"
-        #content
-        .controls
-            |  Name:
-            input#name(style='width:350px;')
-            br
-            input#field(style='width:350px;')
-            input#send(type='button', value='send')
+        
+        nav.navbar
+            span.navbar-brand.mb-0.h1 Chatroom
+
+        .container
+            .row
+                div.col-10
+                    p.lead="Welcome to my Chat"
+                div.col-2
+                    p="Users Online"
+                div.col-10
+                    #content
+                div.col-2
+                    #friendlist
+            .row
+                div.col-12
+                    .controls
+                        |  Name:
+                        input#name
+                        br
+                        input#field
+                        input#send(type='button', value='send')
+               

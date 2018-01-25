@@ -1,6 +1,8 @@
 /**
  * Dependencies
  */
+
+
 var express = require("express");
 var serveStatic = require('serve-static');
 var path = require('path');
@@ -26,7 +28,7 @@ app.get("/", function(req, res){
 app.use(express.static(path.join(__dirname + '/public')));
 
 io.sockets.on('connection', function (socket) {
-    socket.emit('message', { message: 'welcome to the chat' });
+    socket.emit('message', { message: 'Welcome! Enter a username and get started!' });
     socket.on('send', function (data) {
     	console.log('send', data);
         io.sockets.emit('message', data);

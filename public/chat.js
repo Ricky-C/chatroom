@@ -6,6 +6,7 @@ window.onload = function() {
     var sendButton = document.getElementById("send");
     var content = document.getElementById("content");
     var name = document.getElementById('name');
+    var friendlist = document.getElementById('friendlist');
 
     socket.on('message', function (data) {
         if(data.message) {
@@ -34,6 +35,17 @@ window.onload = function() {
         socket.emit('send', { message: text, username: name.value  });
         field.value = "";
     };
+    field.onkeypress = function(event) {
+        var key = event.keyCode;
+        if (key == 13 || key.which == 13) {
+            var text = field.value;
+            socket.emit('send', { message: text, username: name.value  });
+            field.value = "";
+            console.log('its working')
+        };
+    };
+
+
  
 }
 
