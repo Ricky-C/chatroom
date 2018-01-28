@@ -2,37 +2,80 @@
 	height: 100px;
 	padding-left: 0px;
 	padding-right: 0px;
-	background-color: 333333;
+	background-color: #3aafa9;
+
 }
 
 .navbar span {
-	color: 6cc24a;
+	color: #feffff;
 	font-size: 60px;
-	font-family: 'Creepster', cursive;
+	font-family: 'Space Mono', cursive;
 	text-align: center;
 }
 #content {
 	 
 	height: 400px; 
 	margin: 0 0 20px 0; 
-	border: solid 1px #999; 
+	border: solid 1px #999;
+	border-radius: .25rem; 
 	overflow-y: scroll;
-	
+	background-color: #def2f1;
 }
 
 #name {
-	width: 350px; 
+	width: 350px;
+	 background-color: #def2f1;
 }
 
 #field {
 	width: 350px;
+	background-color: #def2f1;
 }
 
 #friendlist {
 	border: solid 1px #999;
+	border-radius: .25rem;
 	height: 400px;
+	background-color: #def2f1;
 	
 }
 p {
-	color: blue;
+	font-family: 'Space Mono', sans-serif;
+
+	color: #17252a;
+}
+.lead {
+	margin-left: 70px;
+}
+
+body {
+	background-color: #3aafa9;
+	font-family: 'Karla', sans-serif;
+}
+
+button {
+	font-family: 'Karla', sans-serif;
+}
+
+hr {
+	color: #feffff;
+}
+
+@media (max-width: 768px) {
+	#friendlist {
+		display: none;
+	}
+	#users {
+		display: none;
+	}
+	#content {
+		margin-left: 3px;
+		height: 283px;
+	}
+	#name {
+		width: 180px;
+	}
+	.lead {
+		margin-left: 60px;
+	}
 }

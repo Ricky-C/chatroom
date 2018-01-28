@@ -9,7 +9,7 @@ html
         link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous")
         script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous")
         link(rel='stylesheet', href="/main.css")
-        link(href="https:///fonts.googleapis.com/css?family=Creepster", rel="stylesheet")
+        link(href="https:///fonts.googleapis.com/css?family=Karla|Space+Mono", rel="stylesheet")
         script(src='/chat.js')
         script(src='socket.io/socket.io.js')
 
@@ -17,23 +17,40 @@ html
         
         nav.navbar
             span.navbar-brand.mb-0.h1 Chatroom
-
+        hr
         .container
             .row
                 div.col-10
                     p.lead="Welcome to my Chat"
                 div.col-2
-                    p="Users Online"
-                div.col-10
+                    p#users="Users Online"
+                div.col-xs-12.col-sm-10
                     #content
-                div.col-2
+                div.col-xs-0.col-sm-2
                     #friendlist
             .row
                 div.col-12
+                //-
                     .controls
                         |  Name:
                         input#name
                         br
                         input#field
                         input#send(type='button', value='send')
-               
+            -//
+                        .input-group
+                            span.input-group-btn
+                                button.btn.btn-secondary#login(type='button') Log In
+                            input.form-control#name(type='text', placeholder='Username')
+                            span.input-group-btn
+                                button.btn.btn-secondary#logout(type='button' disabled) Log Out
+
+
+                        .form-group
+                            label(for='field') Message
+                            textarea#field.form-control(rows='3' disabled)
+                        button.btn.btn-secondary#send(type='submit' value='send') Submit
+
+
+
+                         
