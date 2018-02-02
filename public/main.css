@@ -39,6 +39,14 @@
 	background-color: #def2f1;
 	
 }
+
+#usersonline {
+	list-style: none;
+	font-weight: bold;
+	
+}
+
+
 p {
 	font-family: 'Space Mono', sans-serif;
 

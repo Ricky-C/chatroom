@@ -28,6 +28,7 @@ html
                     #content
                 div.col-xs-0.col-sm-2
                     #friendlist
+                        ul#usersonline
             .row
                 div.col-12
                 //-
@@ -40,10 +41,10 @@ html
             -//
                         .input-group
                             span.input-group-btn
-                                button.btn.btn-secondary#login(type='button') Log In
+                                button.btn.btn-secondary#login(type='submit') Log In
                             input.form-control#name(type='text', placeholder='Username')
                             span.input-group-btn
-                                button.btn.btn-secondary#logout(type='button' disabled) Log Out
+                                button.btn.btn-secondary#logout(type='submit' disabled) Log Out
 
 
                         .form-group
