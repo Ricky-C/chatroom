@@ -1,1 +1,0 @@
-Choose a Username and being chatting!

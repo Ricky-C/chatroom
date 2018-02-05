@@ -44,14 +44,25 @@ io.sockets.on('connection', function (socket) {
     socket.on('add', function (data) {
     	
     	socket.username = data;
+        io.sockets.emit('message', {message: socket.username + ' has joined the chat.'});
     	users.push(socket.username);
-    	updateUsernames();
-
+    	updateUsernames(data);
+        
     	console.log('add', data);
     	io.sockets.emit('username', data);
 
     });
 
+
+//Remove Users
+	socket.on('remove', function (data) {
+
+		socket.username = data;
+		users.splice(users.indexOf(socket.username), 1);
+		updateUsernames(data);
+		console.log('remove', data);
+		io.sockets.emit('username', data);
+	})
 //Send Messages
     socket.on('send', function (data) {
     	console.log('send', data);

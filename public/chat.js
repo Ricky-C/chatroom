@@ -10,11 +10,9 @@ window.onload = function() {
 	var friendlist = document.getElementById('friendlist');
 	var login = document.getElementById('login');
 	var logout = document.getElementById('logout');
-	
-	
 	var usersonline = document.getElementById('usersonline');
 	
-
+//Send Message
 	
 
 	socket.on('message', function (data) {
@@ -41,10 +39,13 @@ window.onload = function() {
 		}
 	});
 	
+//Add User
+
 	socket.on('add', function(data) {
 		addUser(data);
 	})
 
+//Send User To UsersOnline Array
 	socket.on('get users', function(data) {
 		var html = '';
 		for(i= 0;i < data.length;i++) {
@@ -52,13 +53,22 @@ window.onload = function() {
 		}
 		usersonline.innerHTML = html;
 	})
-	
-	
+
+//Remove User From UsersOnline Array
+	socket.on('remove', function(data) {
+		var html = '';
+		for(i = 0;i < data.length;i++) {
+			html -= '<li id="usersonline">' + data[i] + '</li>';
+		}
+		usersonline.innerHTML = html;
+	})
 	 
 
  /*
 	Click and Key Events
 */
+
+//Send Message Click & Enter
 	sendButton.onclick = function() {
 		var text = field.value;
 		socket.emit('send', { message: text, username: name.value  });
@@ -76,12 +86,7 @@ window.onload = function() {
 		};
 	};
 
-
-	
-
-
-
-	
+//Login Click & Enter	
 	login.onclick = function() {
 		
 		var text= name.value;
@@ -89,14 +94,12 @@ window.onload = function() {
 		socket.emit('add', text, function(data) {
 
 			text;
+			friendlist.innerHTML += text;
 		});
 		socket.emit('get users', function(data) {
 			text;
 		});
 		
-
-		
-	
 		$(this).prop('disabled', true);
 		$(name).prop('disabled', true);
 		$(logout).prop('disabled', false);
@@ -117,18 +120,27 @@ window.onload = function() {
 		};
 	};
 
+//Logout Click
 
 	logout.onclick = function() {
-		name.value = '';
+		
 		
 		var text = name.value;
-		socket.emit('disconnect', text, function(data) {
+
+		socket.emit('remove', text, function(data) {
 			text;
-		});
+		})
+
 		socket.emit('get users', text, function(data) {
 			text;
 		});
-		//friendlist.innerHTML = '';
+
+		socket.emit('disconnect', text, function(data) {
+			text;
+			
+		});
+
+		name.value = '';
 
 		$(login).prop('disabled', false);
 		$(name).prop('disabled', false);
