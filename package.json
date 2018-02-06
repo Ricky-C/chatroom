@@ -13,8 +13,6 @@
     },
     "main": "index.js",
     "scripts": {
-        "start": "run-script-os",
-        "start:win32": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 7777 --browser \"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\"",
         "webpack": "webpack"
     },
     "author": "developer"
