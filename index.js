@@ -7,10 +7,10 @@ var express = require("express");
 var serveStatic = require('serve-static');
 var path = require('path');
 var app = express();
-var port = 5000;
+var PORT = process.env.PORT || 5000;
 var users = [];
 var connections = [];
-var io = require('socket.io').listen(app.listen(port));
+var io = require('socket.io').listen(app.listen(PORT));
 
 
 /**
@@ -27,7 +27,7 @@ app.get("/", function(req, res){
 });
 
 app.use(express.static(path.join(__dirname + '/public')));
-console.log("Listening on port " + port);
+console.log("Listening on port " + PORT);
 
 
 /**
