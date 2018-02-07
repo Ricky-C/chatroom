@@ -86,4 +86,8 @@ hr {
 	.lead {
 		margin-left: 60px;
 	}
+	#send {
+		margin-left: 36%;
+		
+	}
 }

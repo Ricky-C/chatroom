@@ -7,7 +7,7 @@ var express = require("express");
 var serveStatic = require('serve-static');
 var path = require('path');
 var app = express();
-var port = 3700;
+var port = 5000;
 var users = [];
 var connections = [];
 var io = require('socket.io').listen(app.listen(port));
@@ -58,6 +58,7 @@ io.sockets.on('connection', function (socket) {
 	socket.on('remove', function (data) {
 
 		socket.username = data;
+        io.sockets.emit('message', {message: socket.username + ' has left the chat.'});
 		users.splice(users.indexOf(socket.username), 1);
 		updateUsernames(data);
 		console.log('remove', data);
