@@ -9,7 +9,7 @@ html
         link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous")
         script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous")
         link(rel='stylesheet', href="/main.css")
-        link(href="https:///fonts.googleapis.com/css?family=Karla|Space+Mono", rel="stylesheet")
+        link(href="https:///fonts.googleapis.com/css?family=Karla|VT323", rel="stylesheet")
         script(src='/chat.js')
         script(src='socket.io/socket.io.js')
 
@@ -31,26 +31,20 @@ html
                         ul#usersonline
             .row
                 div.col-12
-                //-
-                    .controls
-                        |  Name:
-                        input#name
-                        br
-                        input#field
-                        input#send(type='button', value='send')
-            -//
-                        .input-group
-                            span.input-group-btn
-                                button.btn.btn-secondary#login(type='submit') Join
-                            input.form-control#name(type='text', placeholder='Username')
-                            span.input-group-btn
-                                button.btn.btn-secondary#logout(type='submit' disabled) Log Out
-
-
-                        .form-group
-                            label(for='field')
-                            textarea#field.form-control(rows='3' disabled)
-                        button.btn.btn-secondary#send(type='submit' value='send') Submit
+               
+                    .input-group
+                        span.input-group-btn
+                            button.btn.btn-secondary#login(type='submit') Join
+                        input.form-control#name(type='text', placeholder='Username')
+                        span.input-group-btn
+                            button.btn.btn-secondary#logout(type='submit' disabled) Log Out
+            .row
+                div.col-xs-10
+                    .form-group
+                        label(for='field')
+                        textarea#field.form-control(rows='1' disabled)
+                div.col-xs-2
+                    button.btn.btn-secondary#send(type='submit' value='send') Submit
 
 
 

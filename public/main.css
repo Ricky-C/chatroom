@@ -9,7 +9,7 @@
 .navbar span {
 	color: #feffff;
 	font-size: 60px;
-	font-family: 'Space Mono', cursive;
+	font-family: 'VT323', cursive;
 	text-align: center;
 }
 #content {
@@ -29,6 +29,7 @@
 
 #field {
 	width: 350px;
+	margin-left: 14px;
 	background-color: #def2f1;
 }
 
@@ -46,9 +47,13 @@
 	
 }
 
+#send {
+	margin-left: 8px;
+	margin-top: 8px;
+}
 
 p {
-	font-family: 'Space Mono', sans-serif;
+	font-family: 'VT323', sans-serif;
 
 	color: #17252a;
 }
@@ -84,10 +89,16 @@ hr {
 		width: 180px;
 	}
 	.lead {
-		margin-left: 60px;
+		margin-left: 83px;
 	}
 	#send {
-		margin-left: 36%;
+		margin-left: 3px;
+    	margin-top: 6px;
 		
+	}
+	#field {
+		width: 240px;
+		height: 35px;
+		margin-left: 14px;
 	}
 }
